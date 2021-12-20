@@ -1,0 +1,26 @@
+Name	Id	Total Staked	Jurors	Fee For Juror	Min Stake	Min Stake in USD	Vote Stake	Total Disputes	Disputes in the last 30 days	Open Disputes
+General Court	0	142,237,365.322	764	0.030	700.00	$53.31	700	43	1	1
+Blockchain	1	16,451,306.484	80	0.034	2100.00	$159.94	1050	0	0	0
+Non-Technical	2	12,058,058.954	59	0.028	2500.00	$190.41	1250	351	1	0
+Token Listing	3	1,278,061.57	6	0.140	14000.00	$1,066.30	7000	15	0	0
+Technical	4	4,139,536.558	17	0.140	17000.00	$1,294.79	8500	6	0	0
+Marketing Services	5	541,294.118	14	0.100	14000.00	$1,066.30	4550	1	0	0
+English Language	6	1,384,530.039	69	0.036	3900.00	$297.04	1950	2	0	0
+Video Production	7	16,182,988.66	7	0.100	14000.00	$1,066.30	4550	0	0	0
+Onboarding	8	2,625,530.87	212	0.023	700.00	$53.31	700	62	0	0
+Curation	9	1,259,698.731	41	0.028	3100.00	$236.11	1550	105	0	0
+Data Analysis	10	1,105,272.18	27	0.100	700.00	$53.31	350	0	0	0
+Statistical Modeling	11	829,950.199	9	0.230	2200.00	$167.56	1100	0	0	0
+Curation (Medium)	12	370,358.155	8	0.028	3100.00	$236.11	1550	0	0	0
+Spanish-English Translation	13	64,235.379	9	0.028	3900.00	$297.04	1560	3	0	0
+French-English Translation	14	11,206.304	4	0.028	3900.00	$297.04	1560	0	0	0
+Portuguese-English Translation	15	1,495.34	1	0.028	3900.00	$297.04	1560	0	0	0
+German-English Translation	16	90,689.496	9	0.029	3900.00	$297.04	1560	0	0	0
+Russian-English Translation	17	29,938.78	5	0.029	3900.00	$297.04	1560	0	0	0
+Korean-English Translation	18	0	0	0.031	3900.00	$297.04	1677	0	0	0
+Japanese-English Translation	19	110,701.979	5	0.031	3900.00	$297.04	1677	0	0	0
+Turkish-English Translation	20	430,419.205	2	0.031	3900.00	$297.04	1677	4	0	0
+Chinese-English Translation	21	105,730.426	7	0.031	3900.00	$297.04	1677	2	0	0
+Corte General en Español	22	418,053.286	20	0.031	1700.00	$129.48	1700	0	0	0
+Humanity Court	23	22,046,621.172	223	0.028	1200.00	$91.40	600	453	44	14
+
