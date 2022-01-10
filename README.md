@@ -5,5 +5,5 @@
 
 ### Decoding a governor update
 ```bash
-npx hardhat run scripts/decodeGovernorUpdate20211220.ts
+npx hardhat run scripts/governor/decodeGovernorUpdate20211220.ts
 ```
