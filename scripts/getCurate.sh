@@ -8,7 +8,7 @@ fi
 
 address=$1
 
-function getTokensMainnet() {
+function getTokenMainnet() {
     local address=$1
     curl -X POST -s -d '{ "query": "{ litems( where: {registry: \"0x6e31d83b0c696f7d57241d3dffd0f2b628d14c67\", status: Registered, keywords_contains: \"'$address'\"} ) { keywords data } }"}' https://api.thegraph.com/subgraphs/name/kleros/curate | jq -r .data.litems[].data
 }
@@ -20,10 +20,10 @@ function getTagXdai() {
 
 output='{}'
 
-ipfs=$(getTokensMainnet $address)
+ipfs=$(getTokenMainnet $address)
 if [[ "$ipfs" != "" ]]
 then
-    output="$output { \"tagMainnet\": $(curl -s https://ipfs.kleros.io/$ipfs | jq .values) }"
+    output="$output { \"tokenMainnet\": $(curl -s https://ipfs.kleros.io/$ipfs | jq .values) }"
 fi
 
 ipfs=$(getTagXdai $address)
