@@ -35,7 +35,15 @@ function get() #network #rpc #explorer
       '
     )"
     blockNb=$(echo $(($(echo "$result" | jq -r .number))))
-    echo "$result" | jq --arg url "${explorer}/${blockNb}" '. | .url=$url'
+    difficulty=$(echo $(($(echo "$result" | jq -r .difficulty))))
+    isPosChain=$(python3 -c "print( $difficulty > (2 ** 64) )")    
+    echo "$result" | jq \
+      --arg url "${explorer}/${blockNb}" \
+      --arg isPosChain "$isPosChain" '
+        . 
+          | .url=$url 
+          | .difficulty=.difficulty+" (more than 2^64 = PoS chain = "+$isPosChain+")"
+      '
 }
 
 get "Kiln (merged Mar 15)" https://rpc.kiln.themerge.dev https://explorer.kiln.themerge.dev/block
