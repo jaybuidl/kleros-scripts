@@ -59,7 +59,7 @@ get "Mainnet (not merged)" https://rpc.ankr.com/eth/ https://etherscan.io/block
 # ✅ BeaconBlockBody.randao_reveal is available in the JSON RPC API
 # https://github.com/ethereum/consensus-specs/blob/v1.0.1/specs/phase0/beacon-chain.md#beaconblockbody
 # https://ethereum.github.io/beacon-APIs/#/Beacon/getBlockV2
-function getBeacon() # network #rpc
+function getBeacon() # network #rpc #explorer
 {
     local network="$1"
     local rpc="$2"
