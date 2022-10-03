@@ -1,0 +1,18 @@
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+function get-aws-token-tooling() {
+echo ${AWS_ACCOUNT_TOOLING}
+  if [[ ! "$1" ]] ; then
+    echo "You must supply a token code."
+    return 1
+  fi
+
+  ${SCRIPT_DIR}/get-aws-token.sh \
+    -e "aws_userarn=arn:aws:iam::${AWS_ACCOUNT_TOOLING}:mfa/jb" \
+    -e aws_profile="kleros-tooling" \
+    -e aws_sts_profile="kleros-tooling-sts" \
+    -e token_code=$1
+}
+
+source $SCRIPT_DIR/.env
+export -f get-aws-token-tooling
