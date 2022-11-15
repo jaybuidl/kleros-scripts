@@ -10,7 +10,8 @@
   "private": true,
   "packageManager": "yarn@3.1.0",
   "volta": {
-    "node": "16.13.0"
+    "node": "16.18.1",
+    "yarn": "3.1.1"
   },
   "scripts": {
     "build": "hardhat compile",
@@ -26,7 +27,8 @@
     "@typechain/hardhat": "^2.3.1",
     "@types/chai": "^4.2.22",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^16.11.7",
+    "@types/node": "^16.18.1",
+    "@types/qrcode": "^1.5.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "chai": "^4.3.4",
@@ -51,6 +53,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.4.1",
     "prettier-plugin-solidity": "^1.0.0-beta.15",
+    "qrcode": "^1.5.1",
     "solhint": "^3.3.6",
     "solhint-plugin-prettier": "^0.0.5",
     "solidity-coverage": "^0.7.17",

@@ -1,13 +1,14 @@
 module.exports = {
   env: {
     browser: false,
+    es6: true,
     es2021: true,
     mocha: true,
     node: true,
   },
   plugins: ["@typescript-eslint"],
   extends: [
-    "standard",
+    "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:node/recommended",
   ],
