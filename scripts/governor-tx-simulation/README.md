@@ -1,5 +1,9 @@
 # Simulation of Governor Transactions
 
+:warning: This is an experiment, not for production use.
+
+## TODO
+- Simulate all the calls in a submitted list within the same Tenderly fork.
 
 ## Prerequisites
 - `jq`
