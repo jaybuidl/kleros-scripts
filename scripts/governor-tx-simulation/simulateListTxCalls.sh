@@ -3,7 +3,7 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 txId=${1:-0xc07ed485c7e4e8dce7e1ee373f6179287cc5d66adc1405a028e990ee9f762924}
-calls=$(./decodeListTx.sh $txId)
+calls=$($SCRIPT_DIR/decodeListTx.sh $txId)
 
 for i in $(seq 0 $(( $(echo "$calls" | jq '. |  length') - 1 )))
 do
@@ -12,7 +12,7 @@ do
     
     # Use the fields of the governor.submitList() tx as defaults for the calls
     # De simulate the execution as if the governor was making the calls, so we replace .from with the governor address, which is in the .to field of the submitList() tx.
-    ./populateTx.sh \
+    $SCRIPT_DIR/populateTx.sh \
         | jq \
             --argjson call "$call" \
             '.value = $call.value 
@@ -20,8 +20,8 @@ do
                 | .from = .to
                 | .to = $call.to
                 | .save = true' \
-        | ./simulateTx.sh \
-        | ./filterSimulation.sh
+        | $SCRIPT_DIR/simulateTx.sh \
+        | $SCRIPT_DIR/filterSimulation.sh
         #| cat -
 done
 
