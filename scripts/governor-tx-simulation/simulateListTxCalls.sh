@@ -12,7 +12,6 @@ do
     
     # Use the fields of the governor.submitList() tx as defaults for the calls
     # De simulate the execution as if the governor was making the calls, so we replace .from with the governor address, which is in the .to field of the submitList() tx.
-    # Disable saving the simulation to the Tenderly dashboard, the UI doesn't support bulk deletes.
     ./populateTx.sh \
         | jq \
             --argjson call "$call" \
@@ -20,8 +19,9 @@ do
                 | .input = $call.input 
                 | .from = .to
                 | .to = $call.to
-                | .save = false' \
-        | ./simulateTx.sh
+                | .save = true' \
+        | ./simulateTx.sh \
+        | ./filterSimulation.sh
         #| cat -
 done
 

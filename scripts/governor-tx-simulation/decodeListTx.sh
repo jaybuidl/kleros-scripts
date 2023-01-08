@@ -25,7 +25,7 @@ do
     calldata=${data:$cursor:$(($size * 2))}
     #cast pretty-calldata "0x$calldata"
     dataArray=$(echo "$dataArray" | jq --arg calldata "$calldata" '. += ["0x"+$calldata]')
-    cursor=$(( $cursor + $size )) 
+    cursor=$(( $cursor + $(($size * 2)) )) 
 done
 
 echo "{}" \
