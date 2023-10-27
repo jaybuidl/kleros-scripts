@@ -18,10 +18,8 @@ find "$ROOT_DIR" \
         -name "postgres" \
     \) -prune \) \
     -type f \
-    -exec grep -HI api.thegraph.com {} \;
+    -exec grep -HI "api.thegraph.com\|graph deploy" {} \;
 echo 
-
-cd - 2>&1 >/dev/null
 
 for context in production dev deploy-preview branch-preview
 do 
