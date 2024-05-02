@@ -7,6 +7,8 @@
 
 [./transaction-batch-klerosliquid-kip69.json](./transaction-batch-klerosliquid-kip69.json)
 
+![governor](docs/governor.png)
+
 #### Produced by 
 
 [./tx-builder-klerosliquid.sh](./tx-builder-klerosliquid.sh)
