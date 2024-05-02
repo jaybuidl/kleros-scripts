@@ -1,0 +1,6 @@
+{
+  "name": "xDai Solidity Court",
+  "description": "**Court purpose** \n\nThis court serves to arbitrate disputes arising from software development processes using the programming language Solidity, including disputes between developers and third parties regarding whether the disputed software product aligns with the agreed specified requirements.",
+  "summary": "**Policy** \n\nThe parties involved in the dispute must highlight the sections or portions of the code that are being contested. Otherwise, jurors must refuse to arbitrate the dispute.",
+  "requiredSkills": "This court requires a proficient level of expertise in Solidity. Jurors are advised to participate in this court only if they possess the ability to develop relatively simple smart contracts, understand common Solidity security vulnerabilities, and evaluate the time and space complexity of simple functions."
+}

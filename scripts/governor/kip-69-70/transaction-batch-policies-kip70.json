@@ -1,0 +1,85 @@
+{
+    "version": "1.0",
+    "chainId": "100",
+    "createdAt": 1714652097555,
+    "meta": {
+      "name": "Transactions Batch",
+      "description": "",
+      "txBuilderVersion": "1.16.5",
+      "createdFromSafeAddress": "0x5112D584a1C72Fc250176B57aEba5fFbbB287D8F",
+      "createdFromOwnerAddress": "",
+      "checksum": "0x55a24027bfa284cedd74303a29404850105594af90355baf1bff93a7eaed6488"
+    },
+    "transactions": [
+      {
+        "to": "0x9d494768936b6bDaabc46733b8D53A937A6c6D7e",
+        "value": "0",
+        "data": null,
+        "contractMethod": {
+          "inputs": [
+            {
+              "name": "_subcourtID",
+              "type": "uint256"
+            },
+            {
+              "name": "_policy",
+              "type": "string"
+            }
+          ],
+          "name": "setPolicy",
+          "payable": false
+        },
+        "contractInputsValues": {
+          "_subcourtID": "12",
+          "_policy": "/ipfs/QmXW1MKX2NegMgHrYACkcpeKES45zGpXfWaYA1q4M3cx3W/xDai-Development-Court-Policy-v2.json"
+        }
+      },
+      {
+        "to": "0x9d494768936b6bDaabc46733b8D53A937A6c6D7e",
+        "value": "0",
+        "data": null,
+        "contractMethod": {
+          "inputs": [
+            {
+              "name": "_subcourtID",
+              "type": "uint256"
+            },
+            {
+              "name": "_policy",
+              "type": "string"
+            }
+          ],
+          "name": "setPolicy",
+          "payable": false
+        },
+        "contractInputsValues": {
+          "_subcourtID": "13",
+          "_policy": "/ipfs/QmXW1MKX2NegMgHrYACkcpeKES45zGpXfWaYA1q4M3cx3W/xDai-Solidity-Court-Policy-v2.json"
+        }
+      },
+      {
+        "to": "0x9d494768936b6bDaabc46733b8D53A937A6c6D7e",
+        "value": "0",
+        "data": null,
+        "contractMethod": {
+          "inputs": [
+            {
+              "name": "_subcourtID",
+              "type": "uint256"
+            },
+            {
+              "name": "_policy",
+              "type": "string"
+            }
+          ],
+          "name": "setPolicy",
+          "payable": false
+        },
+        "contractInputsValues": {
+          "_subcourtID": "14",
+          "_policy": "/ipfs/QmXW1MKX2NegMgHrYACkcpeKES45zGpXfWaYA1q4M3cx3W/xDai-Javascript-Court-Policy-v2.json"
+        }
+      }
+    ]
+  }
+  
