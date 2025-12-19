@@ -11,7 +11,16 @@ This directory contains scripts to:
 
 ## Files
 
-- **disputes.json** - Main data file containing all disputes
+### Data Files
+- **disputes.json** - Main data file (symlink to chain-specific file)
+- **disputes-ethereum.json** - Ethereum mainnet disputes
+- **disputes-gnosis.json** - Gnosis chain disputes
+- **ethereum/** - Folder containing Ethereum MetaEvidence data
+- **gnosis/** - Folder containing Gnosis MetaEvidence data
+
+### Scripts
+- **chain-functions.env** - Chain management functions (source this file)
+- **chain-env.sh** - Chain-specific environment variables (create from template)
 - **check-new-disputes.sh** - Check for new disputes without modifying files (dry-run)
 - **update-disputes.sh** - Fetch new disputes from The Graph and update disputes.json
 - **fetch-meta-evidence.sh** - Download MetaEvidence for disputes WITH arbitrableHistory
@@ -28,13 +37,74 @@ brew install jq
 brew install foundry
 ```
 
+## Multi-Chain Setup
+
+This directory supports managing disputes from multiple chains (Ethereum, Gnosis, etc.) using symlinks.
+
+### Initial Setup
+
+1. **Create chain-specific configuration:**
+```bash
+cp chain-env.template.sh chain-env.sh
+# Edit chain-env.sh and fill in your actual URLs
+# Note: chain-env.sh is in .gitignore and won't be committed
+```
+
+2. **Create chain-specific dispute files:**
+```bash
+# If starting fresh, create empty files
+echo '{"data":{"disputes":[]}}' > disputes-ethereum.json
+echo '{"data":{"disputes":[]}}' > disputes-gnosis.json
+
+# Create the symlink to your preferred chain
+ln -s disputes-ethereum.json disputes.json
+```
+
+### Switching Between Chains
+
+```bash
+# Load chain functions (once per shell session)
+source chain-functions.env
+
+# Show status of all chains
+chain
+
+# Switch to a chain (updates symlink + env vars automatically)
+chain ethereum
+chain gnosis
+```
+
+### Working with a Specific Chain
+
+```bash
+# Load functions and switch to ethereum
+source chain-functions.env
+chain ethereum
+
+# Check for new disputes
+./check-new-disputes.sh
+
+# Update disputes
+./update-disputes.sh
+
+# Fetch MetaEvidence
+./fetch-meta-evidence-from-logs.sh
+
+# When done, move folders to organized directory
+mv 0x* ethereum/
+
+# Switch to another chain
+chain gnosis
+```
+
 ## Environment Variables
 
 ```bash
-# Required for updating disputes from The Graph
-export DISPUTE_SUBGRAPH="your-graph-endpoint-url"
+# Recommended: Use chain-env.sh for per-chain configuration
+source chain-env.sh ethereum
 
-# Required for event log queries
+# Or set manually:
+export DISPUTE_SUBGRAPH="your-graph-endpoint-url"
 export RPC="https://mainnet.infura.io/v3/YOUR_API_KEY"
 
 # Optional - enable debug mode
@@ -168,7 +238,7 @@ https://cdn.kleros.link/
 
 ## Workflow
 
-Typical workflow for keeping data up to date:
+### Single Chain Workflow
 
 ```bash
 # 1. Set required environment variables
@@ -186,6 +256,38 @@ export RPC="https://mainnet.infura.io/v3/YOUR_API_KEY"
 
 # 5. The MetaEvidence files are now in folders ready for analysis
 ls -la */metaEvidence.json
+```
+
+### Multi-Chain Workflow
+
+```bash
+# Load chain functions once per shell session
+source chain-functions.env
+
+# 1. Check current status
+chain
+
+# 2. Work on Ethereum
+chain ethereum
+./check-new-disputes.sh
+./update-disputes.sh
+./fetch-meta-evidence-from-logs.sh
+
+# 3. Move ethereum folders to organized directory
+mv 0x* ethereum/ 2>/dev/null || true
+
+# 4. Switch to Gnosis
+chain gnosis
+./check-new-disputes.sh
+./update-disputes.sh
+./fetch-meta-evidence-from-logs.sh
+
+# 5. Move gnosis folders to organized directory
+mv 0x* gnosis/ 2>/dev/null || true
+
+# 6. View organized data
+ls -la ethereum/
+ls -la gnosis/
 ```
 
 ## Troubleshooting
