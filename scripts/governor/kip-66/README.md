@@ -29,3 +29,5 @@ KlerosLiquid.executeGovernorProposal(_destination = PNK, _amount = 0, _data = $m
 
 ### Tenderly Simulation
 https://www.tdly.co/shared/simulation/345ff293-05ff-44a2-b816-97108c810de1
+
+<img width="1717" height="831" alt="image" src="https://github.com/user-attachments/assets/b6284ae8-4490-46f6-af5f-3f83f205e43e" />
