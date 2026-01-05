@@ -23,7 +23,7 @@ function addTransaction {
 COOP_MULTISIG_ADDRESS=0xE979438B331b28D3246f8444b74caB0f874b40e8
 PNK_ADDRESS=0x93ED3FBe21207Ec2E8f2d3c3de6e058Cb73Bc04d
 KLEROS_LIQUID_ADDRESS=0x988b3A538b618C7A603e1c11Ab82Cd16dbE28069
-PNK_AMOUNT=78402000
+PNK_AMOUNT=110234000
 
 mintCall=$(cast calldata "generateTokens(address,uint256)" $COOP_MULTISIG_ADDRESS "$(cast --to-wei $PNK_AMOUNT)")
 klerosLiquidCall=$(cast calldata "executeGovernorProposal(address,uint256,bytes)" $PNK_ADDRESS 0 "$mintCall")
