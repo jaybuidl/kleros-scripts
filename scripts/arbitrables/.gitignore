@@ -1,0 +1,17 @@
+# Chain-specific environment configuration (contains sensitive URLs)
+chain-env.sh
+
+# Chain-specific data directories
+ethereum/
+gnosis/
+
+# Backup files
+*.backup.*
+
+# Temporary files
+*_temp.json
+
+# Generated CSV exports (from export-metaevidence-csv.sh)
+ethereum.csv
+gnosis.csv
+

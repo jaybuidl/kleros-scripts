@@ -26,6 +26,7 @@ This directory contains scripts to:
 - **fetch-meta-evidence.sh** - Download MetaEvidence for disputes WITH arbitrableHistory
 - **fetch-meta-evidence-from-logs.sh** - Download MetaEvidence for ALL disputes (including those without arbitrableHistory)
 - **test-single-event.sh** - Debug tool to test fetching a single MetaEvidence event
+- **export-metaevidence-csv.sh** - Flatten every arbitrable's MetaEvidence into a per-chain CSV (for the arbitrables Google Sheet)
 
 ## Prerequisites
 
@@ -183,6 +184,31 @@ export RPC="https://mainnet.infura.io/v3/YOUR_API_KEY"
 # Example
 ./test-single-event.sh 0x68c4cc21378301cfdd5702d66d58a036d7bafe28 0
 ```
+
+### 5. Export MetaEvidence to CSV / Google Sheet
+
+Flatten every arbitrable folder for a chain into a single CSV, one row per
+`0x<address>-<metaEvidenceId>` folder. Broken/empty folders are not skipped — they
+appear as rows with the problem flagged in the `notes` column.
+
+```bash
+./export-metaevidence-csv.sh ethereum   # writes ethereum.csv
+./export-metaevidence-csv.sh gnosis     # writes gnosis.csv
+```
+
+Columns: `address, metaevidenceId, category, subCategory, policy, title, description, metadata, notes`
+
+- `policy` is the MetaEvidence `fileURI` resolved against `https://cdn.kleros.link` (spaces URL-encoded).
+- `metadata` is the raw MetaEvidence `metadata` object serialized as compact JSON (its shape varies by product), blank when absent.
+- `notes` flags structural issues (`missing metaEvidence.json`, `zero-byte file`, `not valid JSON`) and empties (`empty category`, `no policy`, `empty description`).
+
+Import into the [arbitrables Google Sheet](https://docs.google.com/spreadsheets/d/1kV4r1xtSvOIRCXGUfOln4UrBHecG6G36ToB0legXAic/edit)
+(one tab per chain): open the matching tab (Ethereum / Gnosis) → **File → Import →
+Upload** the CSV → **Replace current sheet**, Separator = **Comma**, and leave
+**"Convert text to numbers, dates, and formulas" unchecked** (keeps IPFS paths and
+any `=`-leading descriptions as plain text).
+
+The generated `ethereum.csv` / `gnosis.csv` are gitignored.
 
 ## Output Structure
 
